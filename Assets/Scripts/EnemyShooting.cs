@@ -4,6 +4,8 @@ public class EnemyShooting : MonoBehaviour
 {
     public GameObject projectile;
     public Transform projectilePosition;
+    public float movementSpeed=2f;
+    public float attackSpeed=2f;
 
     private GameObject bullet;
 
@@ -19,11 +21,14 @@ public class EnemyShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 2.0f)
+        if (timer >= attackSpeed)
         {
             Shoot();
             timer = 0.0f;
         }
+
+        //enemy movement code
+        transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
 
     }
 

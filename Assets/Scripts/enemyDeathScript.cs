@@ -26,7 +26,7 @@ public class enemyDeathScript : MonoBehaviour
     {
         Debug.Log("Collision detected with: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag);
 
-        if (collision.gameObject.CompareTag("playerProjectile"))
+        if (collision.gameObject.CompareTag("playerProjectile") || collision.gameObject.CompareTag("player"))
         {
             Debug.Log("Enemy hit by player projectile");
             Destroy(collision.gameObject);
