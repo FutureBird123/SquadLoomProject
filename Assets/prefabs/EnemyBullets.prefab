@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10cdb64b3dd8a45488dc90aa58544f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  projectileSpeed: 10
+  projectileSpeed: 15
   player: 0
 --- !u!58 &8000301614297206331
 CircleCollider2D:

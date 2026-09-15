@@ -1,34 +1,38 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject projectile;
     public Transform projectilePosition;
-    public float movementSpeed=2f;
-    public float attackSpeed=2f;
+    public float movementSpeed=3f;
+    public float attackDelay=2f;
 
     private GameObject bullet;
 
-    private float timer;
+    private float attacktimer;
+    private bool enemySpeedBoosted = false;
+
+
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        attacktimer += Time.deltaTime;
 
-        if (timer >= attackSpeed)
+        if (attacktimer >= attackDelay)
         {
             Shoot();
-            timer = 0.0f;
+            attacktimer = 0.0f;
         }
 
         //enemy movement code
         transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
+
 
     }
 

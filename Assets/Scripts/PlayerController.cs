@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private bool boostCoolDownActive = false;
     private float boostCoolDownTimer = 0f;
 
+    public GameObject boostGameObjectText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed *= 1.75f;
                 Debug.Log("Boost Activated: Move Speed is now " + moveSpeed);
                 boostActive = true;
+                boostGameObjectText.SetActive(false);
             }
         }
         //else if (context.canceled)
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
             {
                 boostCoolDownActive = false;
                 boostCoolDownTimer = 0f;
+                boostGameObjectText.SetActive(true);
                 Debug.Log("Boost Cooldown Complete");
             }
         }

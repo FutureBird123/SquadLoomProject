@@ -9,69 +9,36 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class ShootingController : MonoBehaviour
 {
-    [Header("GameObject/Component References")]
-    [Tooltip("The projectile to be fired.")]
     public GameObject projectilePrefab = null;
-    [Tooltip("The transform in the heirarchy which holds projectiles if any")]
     public Transform projectileHolder = null;
 
-    [Header("Input Settings, Actions, & Controls")]
-    [Tooltip("Whether this shooting controller is controled by the player")]
     public bool isPlayerControlled = false;
     public InputAction fireAction;
 
-    [Header("Firing Settings")]
-    [Tooltip("The minimum time between projectiles being fired.")]
     public float fireRate = 0.05f;
 
-    [Tooltip("The maximum diference between the direction the" +
-        " shooting controller is facing and the direction projectiles are launched.")]
     public float projectileSpread = 1.0f;
 
     // The last time this component was fired
     private float lastFired = Mathf.NegativeInfinity;
 
-    [Header("Effects")]
-    [Tooltip("The effect to create when this fires")]
     public GameObject fireEffect;
 
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is enabled
-    /// </summary>
     void OnEnable()
     {
         fireAction.Enable();
     }
 
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is disabled
-    /// </summary>
     void OnDisable()
     {
         fireAction.Disable();
     }
 
-    /// <summary>
-    /// Description:
-    /// Standard unity function that runs every frame
-    /// Inputs:
-    /// none
-    /// Returns:
-    /// void (no return)
-    /// </summary>
     private void Update()
     {
         ProcessInput();
     }
 
-    /// <summary>
-    /// Description:
-    /// Standard unity function that runs when the script starts
-    /// Inputs:
-    /// none
-    /// Returns:
-    /// void (no return)
-    /// </summary>
     private void Start()
     {
         if (fireAction.bindings.Count == 0 && isPlayerControlled)
@@ -81,14 +48,6 @@ public class ShootingController : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Description:
-    /// Reads input from the input manager
-    /// Inputs:
-    /// None
-    /// Returns:
-    /// void (no return)
-    /// </summary>
     void ProcessInput()
     {
         if (isPlayerControlled)
@@ -104,14 +63,6 @@ public class ShootingController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Description:
-    /// Fires a projectile if possible
-    /// Inputs: 
-    /// none
-    /// Returns: 
-    /// void (no return)
-    /// </summary>
     public void Fire()
     {
         // If the cooldown is over fire a projectile
@@ -130,14 +81,6 @@ public class ShootingController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Description:
-    /// Spawns a projectile and sets it up
-    /// Inputs: 
-    /// none
-    /// Returns: 
-    /// void (no return)
-    /// </summary>
     public void SpawnProjectile()
     {
         // Check that the prefab is valid

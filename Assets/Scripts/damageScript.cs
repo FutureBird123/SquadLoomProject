@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class damageScript : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class damageScript : MonoBehaviour
     public GameObject health2;
     public GameObject health3;
     public GameObject shield;
+
+    public GameObject shieldText;
 
     void Start()
     {
@@ -41,6 +44,7 @@ public class damageScript : MonoBehaviour
         {
             Debug.Log("Player has died");
             Destroy(gameObject);
+            SceneManager.LoadScene(2);
             // Handle player death (e.g., reload scene, show game over screen, etc.)
         }
 
@@ -64,6 +68,7 @@ public class damageScript : MonoBehaviour
             {
                 shieldCooldownActive = false;
                 sheildTimer = 0f;
+                shieldText.SetActive(true);
                 Debug.Log("Shield cooldown ended");
             }
         }
@@ -121,6 +126,7 @@ public class damageScript : MonoBehaviour
             shieldActive = true;
             invincible = true;
             Debug.Log("Shield activated");
+            shieldText.SetActive(false);
         }
     }
 }

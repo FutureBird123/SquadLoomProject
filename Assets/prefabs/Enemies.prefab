@@ -110,8 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooting
   projectile: {fileID: 7233192569166868873, guid: ba1280a15709564408d4d422aaecae3e, type: 3}
   projectilePosition: {fileID: 3613754569441897442}
-  movementSpeed: 2
-  attackSpeed: 1
+  movementSpeed: 3
+  attackDelay: 1
 --- !u!114 &6573206048431272605
 MonoBehaviour:
   m_ObjectHideFlags: 0
