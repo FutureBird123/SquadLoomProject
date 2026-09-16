@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     private bool boostCoolDownActive = false;
     private float boostCoolDownTimer = 0f;
 
-    public GameObject boostGameObjectText;
+    //public GameObject boostGameObjectText;
+    public GameObject player1BoostButton;
+    public GameObject player1AltBoostButton;
 
     void Start()
     {
@@ -43,7 +45,9 @@ public class PlayerController : MonoBehaviour
                 moveSpeed *= 1.75f;
                 Debug.Log("Boost Activated: Move Speed is now " + moveSpeed);
                 boostActive = true;
-                boostGameObjectText.SetActive(false);
+                //boostGameObjectText.SetActive(false);
+                player1AltBoostButton.SetActive(false);
+                player1BoostButton.SetActive(false);
             }
         }
         //else if (context.canceled)
@@ -78,7 +82,9 @@ public class PlayerController : MonoBehaviour
             {
                 boostCoolDownActive = false;
                 boostCoolDownTimer = 0f;
-                boostGameObjectText.SetActive(true);
+                //boostGameObjectText.SetActive(true);
+                player1AltBoostButton.SetActive(true);
+                player1BoostButton.SetActive(true);
                 Debug.Log("Boost Cooldown Complete");
             }
         }

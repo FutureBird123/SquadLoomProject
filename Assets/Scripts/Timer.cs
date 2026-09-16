@@ -25,6 +25,12 @@ public class Timer : MonoBehaviour
     private EnemySpawner enemySpawnerScript;
     private bool isEnemySpawnIntervalReduced = false;
 
+    public GameObject player1UI;
+    public GameObject player1AltUI;
+    public GameObject player2UI;
+    public GameObject player2AltUI;
+    private bool swap1 = false;
+    private bool swap2 = false;
 
     // Update is called once per frame
     void Update()
@@ -62,9 +68,25 @@ public class Timer : MonoBehaviour
                     Debug.Log("Enemy speed boosted!");
                 }
             }
-
+            // swap UI code
+            if(!swap1)
+            {
+                player1UI.SetActive(false);
+                player1AltUI.SetActive(true);
+                player2UI.SetActive(false);
+                player2AltUI.SetActive(true);
+                swap1 = true;
+            }
+            if(!swap2 && elapsedTime>=40)
+            {
+                player1UI.SetActive(true);
+                player1AltUI.SetActive(false);
+                player2UI.SetActive(true);
+                player2AltUI.SetActive(false);
+                swap2 = true;
+            }
             //enemy projectile speed boost code
-            if(!isEnemyProjectileSpeedBoosted && elapsedTime>=40)
+            if (!isEnemyProjectileSpeedBoosted && elapsedTime>=40)
             {
                 enemyProjectileScript = enemyProjectile.GetComponent<Projectile>();
                 if (enemyProjectileScript != null)
