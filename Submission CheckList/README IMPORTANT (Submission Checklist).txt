@@ -1,4 +1,3 @@
-Gave myself an 8 hour limit and here is the checklist of all things I was able to do.
 
 Objectives Achieved:
 
