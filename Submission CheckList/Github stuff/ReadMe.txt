@@ -1,1 +1,0 @@
-Note: The commit timeline show more than 8 hours because I had other chores to do in between. But I spent 8 hours on the project.

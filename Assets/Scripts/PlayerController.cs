@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private bool boostCoolDownActive = false;
     private float boostCoolDownTimer = 0f;
 
-    //public GameObject boostGameObjectText;
     public GameObject player1BoostButton;
     public GameObject player1AltBoostButton;
 
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        //Debug.Log("Move Input: " + moveInput);
     }
 
     public void OnBoost(InputAction.CallbackContext context)
@@ -45,22 +43,15 @@ public class PlayerController : MonoBehaviour
                 moveSpeed *= 1.75f;
                 Debug.Log("Boost Activated: Move Speed is now " + moveSpeed);
                 boostActive = true;
-                //boostGameObjectText.SetActive(false);
                 player1AltBoostButton.SetActive(false);
                 player1BoostButton.SetActive(false);
             }
         }
-        //else if (context.canceled)
-        //{
-        //    moveSpeed /= 1.75f;
-        //    Debug.Log("Boost Deactivated: Move Speed is now " + moveSpeed);
-        //}
     }
 
     void Update()
     {
         Vector2 moveDirection = new Vector2(moveInput.x, moveInput.y);
-        //rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
         rb.linearVelocity = moveDirection * moveSpeed;
 
         if(boostActive)
@@ -82,7 +73,6 @@ public class PlayerController : MonoBehaviour
             {
                 boostCoolDownActive = false;
                 boostCoolDownTimer = 0f;
-                //boostGameObjectText.SetActive(true);
                 player1AltBoostButton.SetActive(true);
                 player1BoostButton.SetActive(true);
                 Debug.Log("Boost Cooldown Complete");

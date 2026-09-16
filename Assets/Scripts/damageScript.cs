@@ -19,7 +19,6 @@ public class damageScript : MonoBehaviour
     public GameObject health3;
     public GameObject shield;
 
-    //public GameObject shieldText;
     public GameObject playerSheildButton;
     public GameObject playerAltShieldButton;
 
@@ -70,7 +69,6 @@ public class damageScript : MonoBehaviour
             {
                 shieldCooldownActive = false;
                 sheildTimer = 0f;
-                //shieldText.SetActive(true);
                 playerSheildButton.SetActive(true);
                 playerAltShieldButton.SetActive(true);
                 Debug.Log("Shield cooldown ended");
@@ -130,7 +128,6 @@ public class damageScript : MonoBehaviour
             shieldActive = true;
             invincible = true;
             Debug.Log("Shield activated");
-            //shieldText.SetActive(false);
             playerSheildButton.SetActive(false);
             playerAltShieldButton.SetActive(false);
         }

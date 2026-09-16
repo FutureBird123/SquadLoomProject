@@ -49,10 +49,12 @@ public class Timer : MonoBehaviour
         {
             CountdownTime -= Time.deltaTime;
             quantumFluxCountDownGameObject.SetActive(true);
-            int countdownSeconds = Mathf.FloorToInt(CountdownTime % 60f);
-            quantumFluxCountDown.text = string.Format("{0:00}:{1:00}", minutes, countdownSeconds);
+            //int countdownSeconds = Mathf.FloorToInt(CountdownTime % 60f);
+            //quantumFluxCountDown.text = string.Format("{0:00}:{1:00}", minutes, countdownSeconds);
+            int countdownSeconds = Mathf.FloorToInt(CountdownTime);
+            quantumFluxCountDown.text = string.Format("{0:00}", countdownSeconds);
         }
-        if((elapsedTime>=20f && elapsedTime <= 22) || elapsedTime>=40f)
+        if ((elapsedTime>=20f && elapsedTime <= 22) || elapsedTime>=40f)
         {
             quantumFluxText.SetActive(false);
             quantumFluxCountDownGameObject.SetActive(false);

@@ -8,16 +8,10 @@ public class EnemyShooting : MonoBehaviour
     public float movementSpeed=3f;
     public float attackDelay=2f;
 
-    private GameObject bullet;
 
     private float attacktimer;
-    private bool enemySpeedBoosted = false;
 
 
-
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
